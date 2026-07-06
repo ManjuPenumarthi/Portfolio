@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manju Bhargavi Penumarthi — Professional Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F4F7F0;
+    --bar: #E1EADA;
+    --ink: #1F2B22;
+    --ink-soft: #4A5A4E;
+    --rule: #B9C7AE;
+    --rule-strong: #7E9271;
+    --over: #A6402F;
+    --under: #3F6B4A;
+    --stamp: #9C6B33;
+    --max: 880px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--paper) 0px,
+      var(--paper) 34px,
+      var(--bar) 34px,
+      var(--bar) 68px
+    );
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--stamp); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+  a:hover{ color: var(--over); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--stamp); outline-offset: 3px; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header.masthead{ margin-bottom: 40px; }
+
+  h1.name{
+    font-family: 'Spectral', serif;
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 64px);
+    margin: 22px 0 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .role{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 15px;
+    color: var(--stamp);
+    margin: 0 0 28px;
+  }
+
+  .statement{
+    border: 1px solid var(--rule-strong);
+    background: rgba(255,255,255,0.35);
+    padding: 24px 26px;
+    position: relative;
+  }
+
+  .statement::before{
+    content: "STATEMENT OF VALUE";
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    background: var(--paper);
+    padding: 0 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+
+  .statement p{ margin: 0 0 12px; }
+  .statement p:last-child{ margin-bottom: 0; }
+
+  .bio{ font-size: 17px; }
+
+  .value-prop{
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink);
+  }
+
+  .section-divider{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 56px 0 28px;
+  }
+
+  .section-divider .mono{
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .section-divider .line{
+    flex: 1;
+    height: 1px;
+    background: var(--rule-strong);
+  }
+
+  .artifact{
+    border: 1px solid var(--rule-strong);
+    background: rgba(255,255,255,0.4);
+    margin-bottom: 44px;
+    position: relative;
+  }
+
+  .artifact-head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 26px 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .artifact-head h2{
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: 26px;
+    margin: 0;
+    max-width: 560px;
+  }
+
+  .stamp{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--stamp);
+    border: 1.5px solid var(--stamp);
+    padding: 5px 10px;
+    transform: rotate(-3deg);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .artifact-intro{
+    padding: 16px 26px 4px;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+
+  table.ledger{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 0;
+  }
+
+  table.ledger tr{ border-top: 1px solid var(--rule); }
+  table.ledger tr:first-child{ border-top: none; }
+
+  table.ledger th{
+    text-align: left;
+    vertical-align: top;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 14px 12px 14px 26px;
+    width: 190px;
+    white-space: nowrap;
+  }
+
+  table.ledger td{
+    text-align: left;
+    padding: 14px 26px 14px 12px;
+    font-size: 15px;
+  }
+
+  .artifact-links{
+    padding: 4px 26px 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .tag-row{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0 26px 20px;
+  }
+
+  .tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--under);
+    border: 1px solid var(--under);
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+
+  footer{
+    margin-top: 64px;
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 620px){
+    table.ledger, table.ledger tbody, table.ledger tr, table.ledger th, table.ledger td{
+      display: block;
+      width: auto;
+    }
+    table.ledger th{ padding: 14px 26px 4px; }
+    table.ledger td{ padding: 0 26px 14px; }
+    .artifact-head{ flex-direction: column; }
+    .stamp{ align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">
+      <span>PROFESSIONAL PORTFOLIO</span>
+      <span>LEDGER NO. 001</span>
+    </div>
+    <h1 class="name">Manju Bhargavi Penumarthi</h1>
+    <p class="role mono">Senior NetSuite Developer &amp; Systems Lead · Corey Construction · Houston, TX</p>
+
+    <div class="statement">
+      <p class="bio">
+        I'm a Senior NetSuite Developer &amp; Systems Lead with about six years of experience across
+        ERP implementations, integrations, and post-go-live support spanning Finance, Accounting,
+        Manufacturing, Construction, and Operations. At Corey Construction, a residential and
+        commercial roofing company, I lead NetSuite OneWorld administration and SuiteScript/SuiteFlow
+        development supporting 300+ users. I'm currently pursuing an M.S. in Computer Information
+        Systems with an AI specialization to bring more structured, evaluated AI practices into that work.
+      </p>
+      <p class="value-prop">
+        "I combine deep NetSuite/ERP domain expertise with a critical, hands-on approach to applying
+        AI tools — turning real operational pain points into automated, tested solutions."
+      </p>
+    </div>
+  </header>
+
+  <div class="section-divider">
+    <span class="mono">Artifacts on File</span>
+    <span class="line"></span>
+  </div>
+
+  <section class="artifact" id="artifact-01">
+    <div class="artifact-head">
+      <h2>AI-Assisted NetSuite Development: Evaluating LLMs and Building a Budget-Variance Chatbot</h2>
+      <span class="stamp">ARTIFACT 01</span>
+    </div>
+
+    <p class="artifact-intro">
+      As a Senior NetSuite Developer at Corey Construction, a residential and commercial roofing
+      company, I've been incorporating AI-assisted development into my day-to-day work — using
+      tools like ChatGPT and Claude with structured prompt engineering to accelerate SuiteScript
+      development and documentation. This artifact captures a deeper, deliberate version of that
+      practice: comparing multiple AI tools on a real NetSuite scripting task, stress-testing a
+      custom GPT's reasoning through iterative dialogue, using an AI research assistant, and
+      ultimately designing and deploying a functional chatbot using design thinking.
+    </p>
+
+    <table class="ledger">
+      <tr>
+        <th>Description</th>
+        <td>
+          A multi-part project where I: (1) compared ChatGPT, Claude, and Copilot on writing a
+          SuiteScript budget-check script — catching a real syntax bug and assumption errors that
+          would have failed in production; (2) worked with a custom coding GPT through six rounds
+          of iterative refinement on a Purchase Order approval model, pushing it to justify its
+          assumptions and catching where it self-corrected; (3) used STORM AI, an AI research tool,
+          to investigate construction ERP job costing and evaluated its source-grounded research
+          process; and (4) applied design thinking (Empathy → Define → Ideate → Prototype → Test)
+          to plan, build, and deploy a working chatbot that answers real budget-variance questions
+          using NetSuite-style data.
+        </td>
+      </tr>
+      <tr>
+        <th>Objective</th>
+        <td>
+          To critically evaluate multiple generative AI tools on real, domain-specific technical
+          tasks, and to apply structured design thinking to build a functional AI assistant —
+          demonstrating both technical judgment and a repeatable process for evaluating AI output
+          rather than trusting it blindly.
+        </td>
+      </tr>
+      <tr>
+        <th>Process</th>
+        <td>
+          I used my own NetSuite/construction background to test each AI tool against tasks where
+          I could independently verify correctness. This included comparing code architectures
+          across three LLMs, running a six-step structured dialogue with a custom GPT (change /
+          add info / ask for more / ask why / what-if / summarize), evaluating an AI research
+          tool's multi-perspective methodology, and following a full design-thinking cycle to
+          scope, plan, build, and test a chatbot — including debugging a real deployment issue
+          around data persistence across conversations.
+        </td>
+      </tr>
+      <tr>
+        <th>Tools &amp; Tech</th>
+        <td>ChatGPT (Business Pro), Claude, Microsoft Copilot, STORM AI, Chatbase.co, SuiteScript 2.1, NetSuite job-costing concepts</td>
+      </tr>
+      <tr>
+        <th>Value Proposition</th>
+        <td>
+          This artifact shows I can work with AI tools as a developer should — verifying output
+          against domain expertise rather than accepting it at face value — while also being able
+          to translate a real business pain point into a working AI solution using a structured
+          design process.
+        </td>
+      </tr>
+      <tr>
+        <th>Unique Value</th>
+        <td>
+          Most people either use AI tools uncritically or avoid them out of skepticism. I
+          demonstrated a middle path: rigorous evaluation combined with practical application,
+          specifically within a niche domain (construction ERP/NetSuite) where generic AI
+          knowledge often falls short.
+        </td>
+      </tr>
+      <tr>
+        <th>Relevance</th>
+        <td>
+          AI-assisted development is already part of my role at Corey Construction, and this artifact
+          shows the more rigorous version of that practice — the kind of critical tool evaluation and
+          structured problem-solving I bring to production ERP work, not just coursework.
+        </td>
+      </tr>
+    </table>
+
+    <div class="tag-row">
+      <span class="tag">NetSuite</span>
+      <span class="tag">SuiteScript 2.1</span>
+      <span class="tag">Prompt Engineering</span>
+      <span class="tag">Design Thinking</span>
+      <span class="tag">AI Evaluation</span>
+    </div>
+
+    <div class="artifact-links">
+      <a href="https://www.chatbase.co/X2TFTfy6KCJ5-3encBUUS/help" target="_blank" rel="noopener">→ Live chatbot demo</a>
+      <a href="#" target="_blank" rel="noopener">→ Full documentation (PDF/Doc) [add link]</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Manju Bhargavi Penumarthi</span>
+    <span>
+      <a href="mailto:manjupenumarthi1@gmail.com">Email</a> ·
+      <a href="https://www.linkedin.com/in/manjupenumarthi" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/ManjuPenumarthi" target="_blank" rel="noopener">GitHub</a>
+    </span>
+  </footer>
+
+</div>
+
+</body>
+</html>
