@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artifact 02 — Machine Learning vs. Deep Learning | Manju Bhargavi Penumarthi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F4F7F0;
+    --bar: #E1EADA;
+    --ink: #1F2B22;
+    --ink-soft: #4A5A4E;
+    --rule: #B9C7AE;
+    --rule-strong: #7E9271;
+    --over: #A6402F;
+    --under: #3F6B4A;
+    --stamp: #9C6B33;
+    --max: 880px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--paper) 0px,
+      var(--paper) 34px,
+      var(--bar) 34px,
+      var(--bar) 68px
+    );
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--stamp); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+  a:hover{ color: var(--over); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--stamp); outline-offset: 3px; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  .backlink{
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .artifact{
+    border: 1px solid var(--rule-strong);
+    background: rgba(255,255,255,0.4);
+    position: relative;
+  }
+
+  .artifact-head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 26px 28px 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .artifact-head h1{
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: clamp(24px, 4vw, 30px);
+    margin: 0;
+    max-width: 620px;
+  }
+
+  .stamp{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--stamp);
+    border: 1.5px solid var(--stamp);
+    padding: 5px 10px;
+    transform: rotate(-3deg);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .artifact-intro{
+    padding: 18px 28px 4px;
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+
+  table.ledger{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 0;
+  }
+
+  table.ledger tr{ border-top: 1px solid var(--rule); }
+  table.ledger tr:first-child{ border-top: none; }
+
+  table.ledger th{
+    text-align: left;
+    vertical-align: top;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 16px 12px 16px 28px;
+    width: 190px;
+    white-space: nowrap;
+  }
+
+  table.ledger td{
+    text-align: left;
+    padding: 16px 28px 16px 12px;
+    font-size: 15.5px;
+  }
+
+  .artifact-links{
+    padding: 6px 28px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .tag-row{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0 28px 24px;
+  }
+
+  .tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--under);
+    border: 1px solid var(--under);
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+
+  footer{
+    margin-top: 48px;
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 620px){
+    table.ledger, table.ledger tbody, table.ledger tr, table.ledger th, table.ledger td{
+      display: block;
+      width: auto;
+    }
+    table.ledger th{ padding: 16px 28px 4px; }
+    table.ledger td{ padding: 0 28px 16px; }
+    .artifact-head{ flex-direction: column; }
+    .stamp{ align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a class="backlink" href="index.html">← Back to portfolio</a>
+
+  <div class="eyebrow">
+    <span>MANJU BHARGAVI PENUMARTHI</span>
+    <span>ARTIFACT 02 OF 02</span>
+  </div>
+
+  <section class="artifact" id="artifact-02">
+    <div class="artifact-head">
+      <h1>Machine Learning vs. Deep Learning: A Case Study Comparison</h1>
+      <span class="stamp">ARTIFACT 02</span>
+    </div>
+
+    <p class="artifact-intro">
+      To build real intuition for when to use machine learning versus deep learning, I moved
+      past textbook definitions and grounded the comparison in two real, deployed systems:
+      Zillow's Zestimate (ML) and Oracle NetSuite's Bill Capture (DL). This artifact captures
+      the reasoning I used to determine not just what each approach does, but why it's the
+      right — or wrong — tool for a given kind of data.
+    </p>
+
+    <table class="ledger">
+      <tr>
+        <th>Description</th>
+        <td>
+          A comparative case study analyzing one machine learning application (Zillow's
+          Zestimate home-valuation model) and one deep learning application (Oracle NetSuite's
+          Bill Capture, a CNN-based OCR system for invoice processing). For each, I identified
+          the real-world system, explained why its approach fits the problem, and argued why
+          the alternative approach would fail or underperform.
+        </td>
+      </tr>
+      <tr>
+        <th>Objective</th>
+        <td>
+          To move beyond definitions and demonstrate practical judgment: given a real business
+          problem and its data, correctly reason through whether classic ML or deep learning is
+          the appropriate approach.
+        </td>
+      </tr>
+      <tr>
+        <th>Process</th>
+        <td>
+          I researched how each system actually works, then built the argument in both
+          directions — why structured, tabular data (square footage, comps, tax records) is
+          well suited to classic ML and poorly suited to DL's added complexity; and why raw,
+          highly variable image data (scanned invoices with no consistent template) requires
+          DL's automatic feature learning and would break under a hand-coded ML approach.
+        </td>
+      </tr>
+      <tr>
+        <th>Tools &amp; Tech</th>
+        <td>Machine Learning (regression, tree-based models), Deep Learning (CNNs, OCR), Applied AI/ML Case Analysis</td>
+      </tr>
+      <tr>
+        <th>Value Proposition</th>
+        <td>
+          This shows I can translate a core AI/ML distinction into a decision-making framework
+          — the kind of reasoning that matters when scoping whether a project needs a
+          lightweight ML model or a heavier DL system, rather than defaulting to whichever is
+          trendiest.
+        </td>
+      </tr>
+      <tr>
+        <th>Unique Value</th>
+        <td>
+          I intentionally chose Bill Capture as the DL example because it lives in the
+          ERP/finance-automation space I already work in at Corey Construction — connecting the
+          coursework directly to the kind of automated document processing my own industry is
+          moving toward.
+        </td>
+      </tr>
+      <tr>
+        <th>Relevance</th>
+        <td>
+          As I bring more structured AI evaluation into my NetSuite work, this is the exact
+          judgment call I'll face: when a business problem calls for a simple, interpretable
+          model versus when it genuinely needs deep learning's pattern-extraction power.
+        </td>
+      </tr>
+    </table>
+
+    <div class="tag-row">
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Deep Learning</span>
+      <span class="tag">Case Study Analysis</span>
+      <span class="tag">Applied AI Reasoning</span>
+    </div>
+
+    <div class="artifact-links">
+      <a href="PASTE_YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" rel="noopener">→ Full write-up</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Manju Bhargavi Penumarthi</span>
+    <span>
+      <a href="mailto:manjupenumarthi1@gmail.com">Email</a> ·
+      <a href="https://www.linkedin.com/in/manjupenumarthi" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/ManjuPenumarthi" target="_blank" rel="noopener">GitHub</a>
+    </span>
+  </footer>
+
+</div>
+
+</body>
+</html>
