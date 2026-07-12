@@ -136,101 +136,89 @@
     background: var(--rule-strong);
   }
 
-  .artifact{
-    border: 1px solid var(--rule-strong);
-    background: rgba(255,255,255,0.4);
-    margin-bottom: 44px;
-    position: relative;
+  /* Artifact tile grid */
+  .artifact-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
   }
 
-  .artifact-head{
+  .artifact-tile{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border: 1px solid var(--rule-strong);
+    background: rgba(255,255,255,0.4);
+    padding: 22px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .artifact-tile:hover{
+    border-color: var(--over);
+    transform: translateY(-2px);
+    box-shadow: 3px 4px 0 rgba(31,43,34,0.08);
+  }
+
+  .tile-top{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 16px;
-    padding: 22px 26px 16px;
-    border-bottom: 1px solid var(--rule);
+    gap: 12px;
   }
 
-  .artifact-head h2{
+  .artifact-tile h3{
     font-family: 'Spectral', serif;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 20px;
     margin: 0;
-    max-width: 560px;
+    line-height: 1.3;
+    color: var(--ink);
   }
 
-  .stamp{
+  .tile-stamp{
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
+    font-size: 10.5px;
     letter-spacing: 0.1em;
     color: var(--stamp);
     border: 1.5px solid var(--stamp);
-    padding: 5px 10px;
+    padding: 4px 8px;
     transform: rotate(-3deg);
     white-space: nowrap;
     flex-shrink: 0;
-    margin-top: 4px;
   }
 
-  .artifact-intro{
-    padding: 16px 26px 4px;
-    font-size: 15.5px;
+  .artifact-tile p{
+    font-size: 14.5px;
     color: var(--ink-soft);
+    margin: 0;
   }
 
-  table.ledger{
-    width: 100%;
-    border-collapse: collapse;
-    margin: 8px 0 0;
-  }
-
-  table.ledger tr{ border-top: 1px solid var(--rule); }
-  table.ledger tr:first-child{ border-top: none; }
-
-  table.ledger th{
-    text-align: left;
-    vertical-align: top;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    padding: 14px 12px 14px 26px;
-    width: 190px;
-    white-space: nowrap;
-  }
-
-  table.ledger td{
-    text-align: left;
-    padding: 14px 26px 14px 12px;
-    font-size: 15px;
-  }
-
-  .artifact-links{
-    padding: 4px 26px 22px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13.5px;
+  .tile-tags{
     display: flex;
-    gap: 20px;
+    gap: 6px;
     flex-wrap: wrap;
   }
 
-  .tag-row{
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    padding: 0 26px 20px;
-  }
-
-  .tag{
+  .tile-tags .tag{
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 11.5px;
+    font-size: 10.5px;
     color: var(--under);
     border: 1px solid var(--under);
-    padding: 3px 9px;
+    padding: 2px 7px;
     border-radius: 2px;
   }
+
+  .tile-cta{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--stamp);
+    border-bottom: none;
+    margin-top: auto;
+  }
+
+  .artifact-tile:hover .tile-cta{ color: var(--over); }
 
   footer{
     margin-top: 64px;
@@ -246,14 +234,7 @@
   }
 
   @media (max-width: 620px){
-    table.ledger, table.ledger tbody, table.ledger tr, table.ledger th, table.ledger td{
-      display: block;
-      width: auto;
-    }
-    table.ledger th{ padding: 14px 26px 4px; }
-    table.ledger td{ padding: 0 26px 14px; }
-    .artifact-head{ flex-direction: column; }
-    .stamp{ align-self: flex-start; }
+    .artifact-grid{ grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -264,7 +245,7 @@
   <header class="masthead">
     <div class="eyebrow">
       <span>PROFESSIONAL PORTFOLIO</span>
-      <span>LEDGER NO. 001</span>
+      <span>2 ARTIFACTS ON FILE</span>
     </div>
     <h1 class="name">Manju Bhargavi Penumarthi</h1>
     <p class="role mono">Senior NetSuite Developer &amp; Systems Lead · Corey Construction · Houston, TX</p>
@@ -290,103 +271,46 @@
     <span class="line"></span>
   </div>
 
-  <section class="artifact" id="artifact-01">
-    <div class="artifact-head">
-      <h2>AI-Assisted NetSuite Development: Evaluating LLMs and Building a Budget-Variance Chatbot</h2>
-      <span class="stamp">ARTIFACT 01</span>
-    </div>
+  <div class="artifact-grid">
 
-    <p class="artifact-intro">
-      As a Senior NetSuite Developer at Corey Construction, a residential and commercial roofing
-      company, I've been incorporating AI-assisted development into my day-to-day work — using
-      tools like ChatGPT and Claude with structured prompt engineering to accelerate SuiteScript
-      development and documentation. This artifact captures a deeper, deliberate version of that
-      practice: comparing multiple AI tools on a real NetSuite scripting task, stress-testing a
-      custom GPT's reasoning through iterative dialogue, using an AI research assistant, and
-      ultimately designing and deploying a functional chatbot using design thinking.
-    </p>
+    <a class="artifact-tile" href="artifact-01.html">
+      <div class="tile-top">
+        <h3>AI-Assisted NetSuite Development: Evaluating LLMs and Building a Budget-Variance Chatbot</h3>
+        <span class="tile-stamp">01</span>
+      </div>
+      <p>
+        Compared ChatGPT, Claude, and Copilot on a real SuiteScript task, stress-tested a custom
+        GPT through iterative dialogue, and designed and deployed a working budget-variance chatbot
+        using design thinking.
+      </p>
+      <div class="tile-tags">
+        <span class="tag">NetSuite</span>
+        <span class="tag">SuiteScript 2.1</span>
+        <span class="tag">AI Evaluation</span>
+        <span class="tag">Design Thinking</span>
+      </div>
+      <span class="tile-cta">→ View artifact</span>
+    </a>
 
-    <table class="ledger">
-      <tr>
-        <th>Description</th>
-        <td>
-          A multi-part project where I: (1) compared ChatGPT, Claude, and Copilot on writing a
-          SuiteScript budget-check script — catching a real syntax bug and assumption errors that
-          would have failed in production; (2) worked with a custom coding GPT through six rounds
-          of iterative refinement on a Purchase Order approval model, pushing it to justify its
-          assumptions and catching where it self-corrected; (3) used STORM AI, an AI research tool,
-          to investigate construction ERP job costing and evaluated its source-grounded research
-          process; and (4) applied design thinking (Empathy → Define → Ideate → Prototype → Test)
-          to plan, build, and deploy a working chatbot that answers real budget-variance questions
-          using NetSuite-style data.
-        </td>
-      </tr>
-      <tr>
-        <th>Objective</th>
-        <td>
-          To critically evaluate multiple generative AI tools on real, domain-specific technical
-          tasks, and to apply structured design thinking to build a functional AI assistant —
-          demonstrating both technical judgment and a repeatable process for evaluating AI output
-          rather than trusting it blindly.
-        </td>
-      </tr>
-      <tr>
-        <th>Process</th>
-        <td>
-          I used my own NetSuite/construction background to test each AI tool against tasks where
-          I could independently verify correctness. This included comparing code architectures
-          across three LLMs, running a six-step structured dialogue with a custom GPT (change /
-          add info / ask for more / ask why / what-if / summarize), evaluating an AI research
-          tool's multi-perspective methodology, and following a full design-thinking cycle to
-          scope, plan, build, and test a chatbot — including debugging a real deployment issue
-          around data persistence across conversations.
-        </td>
-      </tr>
-      <tr>
-        <th>Tools &amp; Tech</th>
-        <td>ChatGPT (Business Pro), Claude, Microsoft Copilot, STORM AI, Chatbase.co, SuiteScript 2.1, NetSuite job-costing concepts</td>
-      </tr>
-      <tr>
-        <th>Value Proposition</th>
-        <td>
-          This artifact shows I can work with AI tools as a developer should — verifying output
-          against domain expertise rather than accepting it at face value — while also being able
-          to translate a real business pain point into a working AI solution using a structured
-          design process.
-        </td>
-      </tr>
-      <tr>
-        <th>Unique Value</th>
-        <td>
-          Most people either use AI tools uncritically or avoid them out of skepticism. I
-          demonstrated a middle path: rigorous evaluation combined with practical application,
-          specifically within a niche domain (construction ERP/NetSuite) where generic AI
-          knowledge often falls short.
-        </td>
-      </tr>
-      <tr>
-        <th>Relevance</th>
-        <td>
-          AI-assisted development is already part of my role at Corey Construction, and this artifact
-          shows the more rigorous version of that practice — the kind of critical tool evaluation and
-          structured problem-solving I bring to production ERP work, not just coursework.
-        </td>
-      </tr>
-    </table>
+    <a class="artifact-tile" href="artifact-02.html">
+      <div class="tile-top">
+        <h3>Machine Learning vs. Deep Learning: A Case Study Comparison</h3>
+        <span class="tile-stamp">02</span>
+      </div>
+      <p>
+        Grounded the ML vs. DL distinction in two real deployed systems — Zillow's Zestimate and
+        Oracle NetSuite's Bill Capture — to build a practical framework for choosing the right
+        approach based on data type.
+      </p>
+      <div class="tile-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Case Study Analysis</span>
+      </div>
+      <span class="tile-cta">→ View artifact</span>
+    </a>
 
-    <div class="tag-row">
-      <span class="tag">NetSuite</span>
-      <span class="tag">SuiteScript 2.1</span>
-      <span class="tag">Prompt Engineering</span>
-      <span class="tag">Design Thinking</span>
-      <span class="tag">AI Evaluation</span>
-    </div>
-
-    <div class="artifact-links">
-      <a href="https://www.chatbase.co/X2TFTfy6KCJ5-3encBUUS/help" target="_blank" rel="noopener">→ Live chatbot demo</a>
-      <a href="https://docs.google.com/document/d/1nes4Xx83ICCkzlUC-l2NLyvjP0rNYKxW/view" target="_blank" rel="noopener">→ Full documentation</a>
-    </div>
-  </section>
+  </div>
 
   <footer>
     <span>© 2026 Manju Bhargavi Penumarthi</span>
