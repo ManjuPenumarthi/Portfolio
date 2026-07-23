@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artifact 03 — AI Opportunity Discovery: Predicting UPS Delivery Delays | Manju Bhargavi Penumarthi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F4F7F0;
+    --bar: #E1EADA;
+    --ink: #1F2B22;
+    --ink-soft: #4A5A4E;
+    --rule: #B9C7AE;
+    --rule-strong: #7E9271;
+    --over: #A6402F;
+    --under: #3F6B4A;
+    --stamp: #9C6B33;
+    --max: 880px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--paper) 0px,
+      var(--paper) 34px,
+      var(--bar) 34px,
+      var(--bar) 68px
+    );
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--stamp); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+  a:hover{ color: var(--over); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--stamp); outline-offset: 3px; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  .backlink{
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .artifact{
+    border: 1px solid var(--rule-strong);
+    background: rgba(255,255,255,0.4);
+    position: relative;
+  }
+
+  .artifact-head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 26px 28px 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .artifact-head h1{
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: clamp(24px, 4vw, 30px);
+    margin: 0;
+    max-width: 620px;
+  }
+
+  .stamp{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--stamp);
+    border: 1.5px solid var(--stamp);
+    padding: 5px 10px;
+    transform: rotate(-3deg);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .artifact-intro{
+    padding: 18px 28px 4px;
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+
+  table.ledger{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 0;
+  }
+
+  table.ledger tr{ border-top: 1px solid var(--rule); }
+  table.ledger tr:first-child{ border-top: none; }
+
+  table.ledger th{
+    text-align: left;
+    vertical-align: top;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 16px 12px 16px 28px;
+    width: 190px;
+    white-space: nowrap;
+  }
+
+  table.ledger td{
+    text-align: left;
+    padding: 16px 28px 16px 12px;
+    font-size: 15.5px;
+  }
+
+  table.ledger td ul{
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  table.ledger td li{
+    margin-bottom: 6px;
+  }
+
+  table.ledger td li:last-child{ margin-bottom: 0; }
+
+  .artifact-links{
+    padding: 6px 28px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .tag-row{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0 28px 24px;
+  }
+
+  .tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--under);
+    border: 1px solid var(--under);
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+
+  .team-note{
+    padding: 0 28px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  footer{
+    margin-top: 48px;
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 620px){
+    table.ledger, table.ledger tbody, table.ledger tr, table.ledger th, table.ledger td{
+      display: block;
+      width: auto;
+    }
+    table.ledger th{ padding: 16px 28px 4px; }
+    table.ledger td{ padding: 0 28px 16px; }
+    .artifact-head{ flex-direction: column; }
+    .stamp{ align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a class="backlink" href="index.html">← Back to portfolio</a>
+
+  <div class="eyebrow">
+    <span>MANJU BHARGAVI PENUMARTHI</span>
+    <span>ARTIFACT 03 OF 03</span>
+  </div>
+
+  <section class="artifact" id="artifact-03">
+    <div class="artifact-head">
+      <h1>AI Opportunity Discovery: Predicting and Preventing Delivery Delays at UPS</h1>
+      <span class="stamp">ARTIFACT 03</span>
+    </div>
+
+    <p class="artifact-intro">
+      As part of a seven-person AI consulting team (operating as "Vision Flow AI"), I helped
+      apply a structured AI Opportunity Discovery framework to a real logistics problem: delivery
+      delays at UPS. Rather than starting from a machine learning technique, the project deliberately
+      started from the business problem — asking whether AI was actually the right tool before ever
+      proposing one — and worked through business framing, data requirements, risk, and rollout
+      strategy across a written report and an accompanying client-style presentation deck.
+    </p>
+
+    <table class="ledger">
+      <tr>
+        <th>Description</th>
+        <td>
+          A team AI-opportunity-discovery project evaluating whether artificial intelligence is a
+          sound investment for reducing delivery delays across UPS's global parcel network. The
+          deliverable included a full written report (Introduction, Business Problem, AI
+          Opportunity, Why AI Is a Good Fit, Value Add, Data Requirements, Potential Challenges,
+          Recommended Next Steps, Conclusion) and a 15-slide client-facing deck built around the
+          same framework under our team identity, Vision Flow AI.
+        </td>
+      </tr>
+      <tr>
+        <th>Objective</th>
+        <td>
+          To test a real operational problem — UPS delivery delays — against the specific
+          conditions that make a problem a strong AI candidate (available historical data,
+          genuine multivariable pattern recognition, measurable outcomes, and a demonstrable edge
+          over rule-based systems), rather than assuming AI was the answer by default.
+        </td>
+      </tr>
+      <tr>
+        <th>Process</th>
+        <td>
+          <ul>
+            <li>Framed the business problem in quantified terms: UPS moves roughly 20.8 million packages a day, so even a 1% miss rate against that volume is 200,000+ late packages daily.</li>
+            <li>Used UPS's own ORION routing system, projected to save $300–$400M per year, as internal proof that this category of AI investment already pays off at UPS's scale.</li>
+            <li>Defined the AI opportunity as a decision-support layer — flagging at-risk deliveries and recommending route adjustments — that keeps dispatchers and drivers as the final decision-makers rather than automating them out.</li>
+            <li>Mapped concrete data requirements (delivery history, live traffic/weather, package data, route/driver data, address quality, failed-delivery records) and named the privacy and security safeguards that data would require.</li>
+            <li>Worked through implementation risk honestly: algorithmic bias against specific neighborhoods or routes, data quality gaps, organizational adoption/trust, and the ethical line against penalizing drivers for conditions outside their control.</li>
+            <li>Proposed a staged rollout — data audit, vendor/data evaluation, stakeholder engagement, then a single-hub pilot — modeled directly on the phased path UPS itself used to roll out ORION.</li>
+            <li>Used the AIML-500 AI Consulting Coach (a custom GPT) for structured research and early drafting support, and Claude AI for slide design and content development on the deck.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Tools &amp; Tech</th>
+        <td>AI Opportunity Discovery framework, business case analysis, AIML-500 AI Consulting Coach (custom GPT), Claude AI, PowerPoint/deck design, APA research &amp; citation</td>
+      </tr>
+      <tr>
+        <th>Value Proposition</th>
+        <td>
+          This artifact shows I can operate a step earlier than implementation — scoping whether a
+          business problem genuinely warrants an AI investment, building the case with quantified,
+          defensible evidence, and presenting that case to a non-technical audience. That's the same
+          discipline I'd want applied before proposing any new AI-assisted process inside NetSuite:
+          justify the investment on the problem's own terms first.
+        </td>
+      </tr>
+      <tr>
+        <th>Unique Value</th>
+        <td>
+          Rather than treating "AI is a good fit" as a foregone conclusion, we explicitly tested the
+          UPS delay problem against the conditions that make AI worthwhile and grounded every claim
+          in UPS's own public numbers and its own internal case study (ORION), rather than generic
+          industry benchmarks. That evidence-first approach is directly transferable to how I'd pitch
+          any AI-assisted improvement in an ERP environment.
+        </td>
+      </tr>
+      <tr>
+        <th>Relevance</th>
+        <td>
+          Before I build anything AI-assisted in NetSuite — whether that's a chatbot, an approval
+          model, or an automation — the real work is the same discovery process shown here: define
+          the business problem precisely, confirm the data exists to support it, and weigh the risk
+          honestly before committing development time.
+        </td>
+      </tr>
+    </table>
+
+    <div class="tag-row">
+      <span class="tag">AI Opportunity Discovery</span>
+      <span class="tag">Business Case Analysis</span>
+      <span class="tag">AI Strategy</span>
+      <span class="tag">Team Consulting Project</span>
+    </div>
+
+    <p class="team-note">Team project — Vision Flow AI: Anjana Susmitha Penmatsa, Bhargavi Ponnuru, Swapnika Vadali, Saivirshitha Yalakaturi, Rohini Gattineni, Manju Bhargavi Penumarthi, Manasa Mohan Kumar · AIML-500, Indiana Wesleyan University</p>
+
+    <div class="artifact-links">
+      <a href="AI_Opportunity_Discovery_UPS_VisionFlowAI.pdf" target="_blank" rel="noopener">→ Full written report (PDF)</a>
+      <a href="VisionFlowAI_UPS_Delay_Prediction.pptx" target="_blank" rel="noopener">→ Presentation deck (PPTX)</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Manju Bhargavi Penumarthi</span>
+    <span>
+      <a href="mailto:manjupenumarthi1@gmail.com">Email</a> ·
+      <a href="https://www.linkedin.com/in/manjupenumarthi" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/ManjuPenumarthi" target="_blank" rel="noopener">GitHub</a>
+    </span>
+  </footer>
+
+</div>
+
+</body>
+</html>
