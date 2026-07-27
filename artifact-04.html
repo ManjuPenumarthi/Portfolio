@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artifact 04 — Navigating Real-World ML Data Challenges | Manju Bhargavi Penumarthi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F4F7F0;
+    --bar: #E1EADA;
+    --ink: #1F2B22;
+    --ink-soft: #4A5A4E;
+    --rule: #B9C7AE;
+    --rule-strong: #7E9271;
+    --over: #A6402F;
+    --under: #3F6B4A;
+    --stamp: #9C6B33;
+    --max: 880px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      var(--paper) 0px,
+      var(--paper) 34px,
+      var(--bar) 34px,
+      var(--bar) 68px
+    );
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--stamp); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+  a:hover{ color: var(--over); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--stamp); outline-offset: 3px; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  .backlink{
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .artifact{
+    border: 1px solid var(--rule-strong);
+    background: rgba(255,255,255,0.4);
+    position: relative;
+  }
+
+  .artifact-head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 26px 28px 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .artifact-head h1{
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: clamp(24px, 4vw, 30px);
+    margin: 0;
+    max-width: 620px;
+  }
+
+  .stamp{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--stamp);
+    border: 1.5px solid var(--stamp);
+    padding: 5px 10px;
+    transform: rotate(-3deg);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .artifact-intro{
+    padding: 18px 28px 4px;
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+
+  table.ledger{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 0;
+  }
+
+  table.ledger tr{ border-top: 1px solid var(--rule); }
+  table.ledger tr:first-child{ border-top: none; }
+
+  table.ledger th{
+    text-align: left;
+    vertical-align: top;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 16px 12px 16px 28px;
+    width: 190px;
+    white-space: nowrap;
+  }
+
+  table.ledger td{
+    text-align: left;
+    padding: 16px 28px 16px 12px;
+    font-size: 15.5px;
+  }
+
+  table.ledger td ul{
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  table.ledger td li{
+    margin-bottom: 6px;
+  }
+
+  table.ledger td li:last-child{ margin-bottom: 0; }
+
+  .artifact-links{
+    padding: 6px 28px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .tag-row{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0 28px 24px;
+  }
+
+  .tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--under);
+    border: 1px solid var(--under);
+    padding: 3px 9px;
+    border-radius: 2px;
+  }
+
+  footer{
+    margin-top: 48px;
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 620px){
+    table.ledger, table.ledger tbody, table.ledger tr, table.ledger th, table.ledger td{
+      display: block;
+      width: auto;
+    }
+    table.ledger th{ padding: 16px 28px 4px; }
+    table.ledger td{ padding: 0 28px 16px; }
+    .artifact-head{ flex-direction: column; }
+    .stamp{ align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a class="backlink" href="index.html">← Back to portfolio</a>
+
+  <div class="eyebrow">
+    <span>MANJU BHARGAVI PENUMARTHI</span>
+    <span>ARTIFACT 04 OF 04</span>
+  </div>
+
+  <section class="artifact" id="artifact-04">
+    <div class="artifact-head">
+      <h1>Navigating Real-World ML Data Challenges: A Scenario-Based Coaching Session</h1>
+      <span class="stamp">ARTIFACT 04</span>
+    </div>
+
+    <p class="artifact-intro">
+      My other artifacts show how I evaluate AI tools, reason about ML vs. DL, and scope whether
+      AI is worth investing in at all. This artifact goes a level deeper: the hands-on technical
+      judgment calls that come <em>after</em> a project is greenlit and real, messy data shows up.
+      Working through three scenarios with an AI coach, I reasoned through the actual decisions a
+      data scientist has to make when a dataset has missing values, when a model is quietly
+      failing on a rare-but-critical class, and when a previously accurate model starts drifting
+      in production — the kind of problem that shows up in ERP and reporting systems just as
+      often as it does in consumer ML.
+    </p>
+
+    <table class="ledger">
+      <tr>
+        <th>Description</th>
+        <td>
+          A one-on-one coaching session with an AI-driven scenario bot covering three common
+          machine learning data challenges: (1) handling a dataset where 20% of values in a key
+          feature (income) are missing for a customer churn model, (2) diagnosing and fixing a
+          fraud detection model that hits 99.5% accuracy by predicting "not fraud" for every
+          transaction, and (3) explaining why a housing price model that performed well in
+          testing started underpricing homes in a rapidly gentrifying neighborhood six months
+          after deployment.
+        </td>
+      </tr>
+      <tr>
+        <th>Objective</th>
+        <td>
+          To demonstrate practical, technically-grounded decision-making for the data problems
+          that most directly determine whether an ML model is trustworthy in production —
+          missing data, class imbalance, and concept/data drift — rather than treating these as
+          abstract textbook definitions.
+        </td>
+      </tr>
+      <tr>
+        <th>Process</th>
+        <td>
+          <ul>
+            <li><strong>Missing data (churn model):</strong> reasoned that the fix depends on
+            <em>why</em> the data is missing — checking whether missingness correlates with other
+            features before choosing a strategy — and proposed median imputation paired with a
+            "missing" indicator flag as a defensible first pass, rather than defaulting to
+            dropping 20% of the dataset.</li>
+            <li><strong>Class imbalance (fraud detection):</strong> identified that 99.5% accuracy
+            was misleading given only 0.5% of transactions were fraudulent, and that the model was
+            exploiting the imbalance rather than learning fraud patterns. Proposed moving off
+            accuracy entirely in favor of precision/recall/F1 and PR-AUC, and recommended starting
+            with class weighting before layering in SMOTE-based oversampling or threshold tuning.</li>
+            <li><strong>Data drift (housing price model):</strong> diagnosed the underpricing issue
+            in a gentrifying neighborhood as data drift — the relationship between features and
+            price shifting faster than the model's training data reflected — and recommended
+            confirming the drift was localized, retraining on recent data, and setting up ongoing
+            monitoring so drift is caught earlier than a six-month lag next time.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Tools &amp; Tech</th>
+        <td>AI Scenario Coaching Bot (SchoolAI.com), applied data science reasoning, statistical evaluation metrics (precision, recall, F1, PR-AUC), imputation and resampling strategy (SMOTE, class weighting)</td>
+      </tr>
+      <tr>
+        <th>Value Proposition</th>
+        <td>
+          This artifact shows I can reason through the technical judgment calls that sit
+          underneath any AI/ML system I'd propose or evaluate — not just whether to use AI, but
+          how to keep a model honest once real data and real drift show up. That's directly
+          relevant to any reporting, forecasting, or anomaly-detection logic built into ERP
+          systems like NetSuite, where "clean" training conditions never survive contact with
+          production data.
+        </td>
+      </tr>
+      <tr>
+        <th>Unique Value</th>
+        <td>
+          Where Artifact 02 shows conceptual judgment (ML vs. DL) and Artifact 03 shows
+          business-case judgment (should we invest in AI at all), this artifact fills the gap
+          between them: the practical, in-the-weeds reasoning a developer needs once a model is
+          actually being built and monitored — the stage where most production ML failures
+          actually happen.
+        </td>
+      </tr>
+      <tr>
+        <th>Relevance</th>
+        <td>
+          As I bring more structured AI/ML practice into NetSuite development, this is the layer
+          I'll rely on most directly: recognizing when a dataset's missing values need more than
+          a quick fix, catching a model that's gaming its own metric, and knowing to watch for
+          drift in any system trained on historical business data that keeps changing underneath it.
+        </td>
+      </tr>
+    </table>
+
+    <div class="tag-row">
+      <span class="tag">Data Quality</span>
+      <span class="tag">Class Imbalance</span>
+      <span class="tag">Model Drift</span>
+      <span class="tag">Applied ML Reasoning</span>
+    </div>
+
+  </section>
+
+  <footer>
+    <span>© 2026 Manju Bhargavi Penumarthi</span>
+    <span>
+      <a href="mailto:manjupenumarthi1@gmail.com">Email</a> ·
+      <a href="https://www.linkedin.com/in/manjupenumarthi" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/ManjuPenumarthi" target="_blank" rel="noopener">GitHub</a>
+    </span>
+  </footer>
+
+</div>
+
+</body>
+</html>
