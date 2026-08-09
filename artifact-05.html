@@ -3,284 +3,811 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Artifact 05 — AI Moves Into the Workflow: Commercial Applications Across Roofing, ERP & Supply Chain | Manju Bhargavi Penumarthi</title>
+
+<title>
+  Artifact 05 — AI Moves Into the Workflow: Commercial Applications Across Roofing, ERP & Supply Chain | Manju Bhargavi Penumarthi
+</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+  rel="stylesheet"
+>
+
 <style>
 
-  :root{
-    --paper: #F4F7F0;
-    --bar: #E1EADA;
-    --ink: #1F2B22;
-    --ink-soft: #4A5A4E;
-    --rule: #B9C7AE;
-    --rule-strong: #7E9271;
-    --over: #A6402F;
-    --under: #3F6B4A;
-    --stamp: #9C6B33;
-    --max: 880px;
-  }
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  body{
-    margin:0;
-    color: var(--ink);
-    background-color: var(--paper);
-    background-image: repeating-linear-gradient(
-      to bottom,
-      var(--paper) 0px,
-      var(--paper) 34px,
-      var(--bar) 34px,
-      var(--bar) 68px
-    );
-    font-family: 'IBM Plex Sans', sans-serif;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-  }
-  a{ color: var(--stamp); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
-  a:hover{ color: var(--over); }
-  a:focus-visible, button:focus-visible{ outline: 2px solid var(--stamp); outline-offset: 3px; }
-  .wrap{ max-width: var(--max); margin: 0 auto; padding: 40px 24px 80px; }
-  .mono{ font-family: 'IBM Plex Mono', monospace; }
-  .backlink{
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    margin-bottom: 28px;
-  }
-  .eyebrow{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    border-top: 1px solid var(--rule-strong);
-    border-bottom: 1px solid var(--rule-strong);
-    padding: 8px 0;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-  }
-  .artifact{
-    border: 1px solid var(--rule-strong);
-    background: rgba(255,255,255,0.4);
-    position: relative;
-  }
-  .artifact-head{
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 26px 28px 18px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .artifact-head h1{
-    font-family: 'Spectral', serif;
-    font-weight: 600;
-    font-size: clamp(24px, 4vw, 30px);
-    margin: 0;
-    max-width: 620px;
-  }
-  .stamp{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--stamp);
-    border: 1.5px solid var(--stamp);
-    padding: 5px 10px;
-    transform: rotate(-3deg);
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
-  .artifact-intro{
-    padding: 18px 28px 4px;
-    font-size: 16px;
-    color: var(--ink-soft);
-  }
-  table.ledger{ width: 100%; border-collapse: collapse; margin: 8px 0 0; }
-  table.ledger tr{ border-top: 1px solid var(--rule); }
-  table.ledger tr:first-child{ border-top: none; }
-  table.ledger th{
-    text-align: left;
-    vertical-align: top;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    padding: 16px 12px 16px 28px;
-    width: 190px;
-    white-space: nowrap;
-  }
+:root{
+  --paper: #F4F7F0;
+  --bar: #E1EADA;
+  --ink: #1F2B22;
+  --ink-soft: #4A5A4E;
+  --rule: #B9C7AE;
+  --rule-strong: #7E9271;
+  --over: #A6402F;
+  --under: #3F6B4A;
+  --stamp: #9C6B33;
+  --max: 880px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--paper) 0px,
+    var(--paper) 34px,
+    var(--bar) 34px,
+    var(--bar) 68px
+  );
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{
+  color: var(--stamp);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+a:hover{
+  color: var(--over);
+}
+
+a:focus-visible{
+  outline: 2px solid var(--stamp);
+  outline-offset: 3px;
+}
+
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.mono{
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Back link */
+
+.backlink{
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  margin-bottom: 28px;
+}
+
+/* Top ledger heading */
+
+.eyebrow{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+
+  padding: 8px 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+/* Artifact */
+
+.artifact{
+  border: 1px solid var(--rule-strong);
+  background: rgba(255,255,255,0.4);
+  position: relative;
+}
+
+.artifact-head{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 26px 28px 18px;
+
+  border-bottom: 1px solid var(--rule);
+}
+
+.artifact-head h1{
+  font-family: 'Spectral', serif;
+  font-weight: 600;
+
+  font-size: clamp(24px, 4vw, 30px);
+
+  margin: 0;
+
+  max-width: 620px;
+}
+
+/* Artifact stamp */
+
+.stamp{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+
+  letter-spacing: 0.1em;
+
+  color: var(--stamp);
+
+  border: 1.5px solid var(--stamp);
+
+  padding: 5px 10px;
+
+  transform: rotate(-3deg);
+
+  white-space: nowrap;
+
+  flex-shrink: 0;
+
+  margin-top: 4px;
+}
+
+/* Intro */
+
+.artifact-intro{
+  padding: 18px 28px 4px;
+
+  font-size: 16px;
+
+  color: var(--ink-soft);
+}
+
+/* Ledger */
+
+table.ledger{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 0;
+}
+
+table.ledger tr{
+  border-top: 1px solid var(--rule);
+}
+
+table.ledger tr:first-child{
+  border-top: none;
+}
+
+table.ledger th{
+  text-align: left;
+  vertical-align: top;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 11.5px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  color: var(--ink-soft);
+
+  padding: 16px 12px 16px 28px;
+
+  width: 190px;
+
+  white-space: nowrap;
+}
+
+table.ledger td{
+  text-align: left;
+
+  padding: 16px 28px 16px 12px;
+
+  font-size: 15.5px;
+}
+
+table.ledger td ul,
+table.ledger td ol{
+  margin: 0;
+  padding-left: 18px;
+}
+
+table.ledger td li{
+  margin-bottom: 6px;
+}
+
+table.ledger td li:last-child{
+  margin-bottom: 0;
+}
+
+/* Tags */
+
+.tag-row{
+  display: flex;
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  padding: 0 28px 24px;
+}
+
+.tag{
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 11.5px;
+
+  color: var(--under);
+
+  border: 1px solid var(--under);
+
+  padding: 3px 9px;
+
+  border-radius: 2px;
+}
+
+/* Artifact links */
+
+.artifact-links{
+  padding: 6px 28px 24px;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 13.5px;
+
+  display: flex;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+/* References */
+
+.refs{
+  margin: 0;
+
+  padding-left: 18px;
+}
+
+.refs li{
+  margin-bottom: 9px;
+}
+
+.refs li:last-child{
+  margin-bottom: 0;
+}
+
+/* Footer */
+
+footer{
+  margin-top: 48px;
+
+  border-top: 1px solid var(--rule-strong);
+
+  padding-top: 20px;
+
+  font-family: 'IBM Plex Mono', monospace;
+
+  font-size: 13px;
+
+  color: var(--ink-soft);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+/* Mobile */
+
+@media (max-width: 620px){
+
+  table.ledger,
+  table.ledger tbody,
+  table.ledger tr,
+  table.ledger th,
   table.ledger td{
-    text-align: left;
-    padding: 16px 28px 16px 12px;
-    font-size: 15.5px;
+    display: block;
+    width: auto;
   }
-  table.ledger td ul, table.ledger td ol{ margin: 0; padding-left: 18px; }
-  table.ledger td li{ margin-bottom: 6px; }
-  table.ledger td li:last-child{ margin-bottom: 0; }
-  .artifact-links{
-    padding: 6px 28px 24px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13.5px;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+
+  table.ledger th{
+    padding: 16px 28px 4px;
   }
-  .tag-row{
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    padding: 0 28px 24px;
+
+  table.ledger td{
+    padding: 0 28px 16px;
   }
-  .tag{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11.5px;
-    color: var(--under);
-    border: 1px solid var(--under);
-    padding: 3px 9px;
-    border-radius: 2px;
+
+  .artifact-head{
+    flex-direction: column;
   }
-  .team-note{
-    padding: 0 28px 24px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    font-style: italic;
+
+  .stamp{
+    align-self: flex-start;
   }
-  .refs{
-    margin: 0;
-    padding-left: 18px;
-  }
-  .refs li{ margin-bottom: 9px; }
-  .refs li:last-child{ margin-bottom: 0; }
-  footer{
-    margin-top: 48px;
-    border-top: 1px solid var(--rule-strong);
-    padding-top: 20px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    color: var(--ink-soft);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  @media (max-width: 620px){
-    table.ledger, table.ledger tbody, table.ledger tr, table.ledger th, table.ledger td{
-      display: block;
-      width: auto;
-    }
-    table.ledger th{ padding: 16px 28px 4px; }
-    table.ledger td{ padding: 0 28px 16px; }
-    .artifact-head{ flex-direction: column; }
-    .stamp{ align-self: flex-start; }
-  }
+
+}
 
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
-  <a class="backlink" href="index.html">← Back to portfolio</a>
+
+  <a class="backlink" href="index.html">
+    ← Back to portfolio
+  </a>
+
   <div class="eyebrow">
-    <span>MANJU BHARGAVI PENUMARTHI</span>
-    <span>ARTIFACT 05 OF 05</span>
-  </div>
-  <section class="artifact" id="artifact-05">
-    <div class="artifact-head">
-      <h1>AI Moves Into the Workflow: Commercial Applications Across Roofing, ERP & Supply Chain</h1>
-      <span class="stamp">ARTIFACT 05</span>
-    </div>
-    <p class="artifact-intro">The strongest commercial AI applications are increasingly becoming part of the systems employees already
-use rather than separate destinations. In this newsletter, I examined that shift across three operational
-contexts — roofing and construction, ERP and finance, and supply chain management — focusing on how AI can
-reduce handoffs, surface problems earlier, and help employees make better decisions while preserving
-business controls and human accountability.</p>
-    <table class="ledger">
-      <tr>
-        <th>Description</th>
-        <td>A business-technology newsletter examining three commercial AI applications that are moving
-intelligence directly into operational workflows: XBuild's AI-assisted roofing inspection and estimating
-workflow; Oracle NetSuite's AI direction across financial management, reconciliation, analysis, and close
-activities; and Oracle Fusion Cloud SCM's AI and agentic capabilities for supplier qualification,
-procurement, planning, logistics, and supply-chain execution.</td>
-      </tr>
-      <tr>
-        <th>Objective</th>
-        <td>To evaluate commercial AI based on the operational question that matters most: what part of an
-existing process becomes faster, more accurate, or easier to manage because the AI exists? The goal was to
-look beyond impressive demonstrations and identify where embedded AI can reduce friction, accelerate
-decision-making, and improve measurable business outcomes.</td>
-      </tr>
-      <tr>
-        <th>Process</th>
-        <td><ol>
-<li><strong>Selected three operational domains:</strong> roofing/construction, ERP and finance, and supply chain/procurement.</li>
-<li><strong>Researched current commercial applications:</strong> reviewed vendor and industry sources describing recently released AI-assisted and agentic functionality.</li>
-<li><strong>Mapped workflow impact:</strong> analyzed how each application changes handoffs, exception handling, analysis, documentation, or prioritization inside an existing business process.</li>
-<li><strong>Evaluated controls and human oversight:</strong> distinguished AI assistance from autonomous decision-making, emphasizing permissions, approvals, accounting rules, audit trails, and authorized human action.</li>
-<li><strong>Synthesized the common pattern:</strong> identified the shift from AI as a separate destination toward AI embedded directly inside the workflow where employees already perform the work.</li>
-</ol></td>
-      </tr>
-      <tr>
-        <th>Tools &amp; Tech</th>
-        <td>Commercial AI research, Oracle NetSuite, Oracle Fusion Cloud SCM, agentic AI, AI-assisted estimating, ERP/financial management, procurement workflows, business-process analysis</td>
-      </tr>
-      <tr>
-        <th>Value Proposition</th>
-        <td>This artifact demonstrates that I can connect AI capabilities to the operating model
-around them — workflow design, controls, integration, decision quality, and measurable business value. It
-shows the perspective I bring as an ERP professional: the strongest AI application is not simply the most
-advanced model, but the one that improves a real process without bypassing the controls the business depends on.</td>
-      </tr>
-      <tr>
-        <th>Unique Value</th>
-        <td>The newsletter ties emerging AI capabilities directly to industries and systems I understand
-professionally. The roofing example connects field inspection and estimating to downstream project and
-financial processes; the NetSuite example treats ERP as a potential "system of assistance" rather than only
-a system of record; and the supply-chain example shows how agentic AI can prioritize risk while keeping
-meaningful actions under human approval.</td>
-      </tr>
-      <tr>
-        <th>Relevance</th>
-        <td>This artifact brings the portfolio's earlier themes together. Artifact 01 focused on evaluating
-and building with AI, Artifact 02 on choosing appropriate modeling approaches, Artifact 03 on determining
-whether an AI investment is justified, and Artifact 04 on production data challenges. Artifact 05 adds the
-enterprise perspective: how AI becomes useful when it is embedded into real business workflows and governed
-by the same controls, integrations, and accountability that already protect the organization.</td>
-      </tr>
-      <tr>
-        <th>References</th>
-        <td><ul class="refs">
-<li>Robins, M. (2026, July 15). <a href="https://roofingmagazine.com/xbuild-announced-the-launch-of-its-mobile-app/" target="_blank" rel="noopener"><em>AI-Powered Estimating</em></a>. <em>Roofing Magazine</em>. XBuild mobile app launch coverage.</li>
-<li>Oracle NetSuite. (2026). NetSuite release materials and NetSuite Applications Suite documentation on AI-assisted financial management and transaction matching.</li>
-<li>Oracle. (2026, July 13). <a href="https://blogs.oracle.com/scm/oracle-fusion-cloud-scm-26c-practical-innovation-across-the-supply-chain" target="_blank" rel="noopener"><em>Oracle Fusion Cloud SCM 26C: Practical Innovation Across the Supply Chain</em></a>.</li>
-<li>Oracle Cloud Applications Readiness. (2026). <a href="https://docs.oracle.com/en/cloud/saas/readiness/scm/26c/proc26c/26C-procurement-wn-f46293.htm" target="_blank" rel="noopener"><em>AI Agentic App: Supplier Qualification Workspace</em></a>.</li>
-</ul></td>
-      </tr>
-    </table>
-    <div class="tag-row">
-      <span class="tag">Commercial AI</span>
-      <span class="tag">NetSuite</span>
-      <span class="tag">Roofing Technology</span>
-      <span class="tag">Supply Chain</span>
-      <span class="tag">Agentic AI</span>
-      <span class="tag">Workflow Design</span>
-    </div>
-    
-    
-  </section>
-  <footer>
-    <span>© 2026 Manju Bhargavi Penumarthi</span>
+
     <span>
-      <a href="mailto:manjupenumarthi1@gmail.com">Email</a> ·
-      <a href="https://www.linkedin.com/in/manjupenumarthi" target="_blank" rel="noopener">LinkedIn</a> ·
-      <a href="https://github.com/ManjuPenumarthi" target="_blank" rel="noopener">GitHub</a>
+      MANJU BHARGAVI PENUMARTHI
     </span>
+
+    <span>
+      ARTIFACT 05 OF 05
+    </span>
+
+  </div>
+
+
+  <section class="artifact" id="artifact-05">
+
+
+    <!-- ARTIFACT HEADER -->
+
+    <div class="artifact-head">
+
+      <h1>
+        AI Moves Into the Workflow: Commercial Applications Across Roofing, ERP &amp; Supply Chain
+      </h1>
+
+      <span class="stamp">
+        ARTIFACT 05
+      </span>
+
+    </div>
+
+
+    <!-- INTRODUCTION -->
+
+    <p class="artifact-intro">
+
+      The strongest commercial AI applications are increasingly becoming
+      part of the systems employees already use rather than separate
+      destinations.
+
+      In this newsletter, I examined that shift across three operational
+      contexts — roofing and construction, ERP and finance, and supply
+      chain management — focusing on how AI can reduce handoffs, surface
+      problems earlier, and help employees make better decisions while
+      preserving business controls and human accountability.
+
+    </p>
+
+
+    <!-- ARTIFACT LEDGER -->
+
+    <table class="ledger">
+
+
+      <!-- DESCRIPTION -->
+
+      <tr>
+
+        <th>
+          Description
+        </th>
+
+        <td>
+
+          A business-technology newsletter examining three commercial AI
+          applications that are moving intelligence directly into
+          operational workflows:
+
+          XBuild's AI-assisted roofing inspection and estimating workflow;
+          Oracle NetSuite's AI direction across financial management,
+          reconciliation, analysis, and close activities; and Oracle
+          Fusion Cloud SCM's AI and agentic capabilities for supplier
+          qualification, procurement, planning, logistics, and
+          supply-chain execution.
+
+        </td>
+
+      </tr>
+
+
+      <!-- OBJECTIVE -->
+
+      <tr>
+
+        <th>
+          Objective
+        </th>
+
+        <td>
+
+          To evaluate commercial AI based on the operational question that
+          matters most:
+
+          <strong>
+            What part of an existing process becomes faster, more accurate,
+            or easier to manage because the AI exists?
+          </strong>
+
+          The goal was to look beyond impressive demonstrations and identify
+          where embedded AI can reduce friction, accelerate decision-making,
+          and improve measurable business outcomes.
+
+        </td>
+
+      </tr>
+
+
+      <!-- PROCESS -->
+
+      <tr>
+
+        <th>
+          Process
+        </th>
+
+        <td>
+
+          <ol>
+
+            <li>
+
+              <strong>
+                Selected three operational domains:
+              </strong>
+
+              roofing/construction, ERP and finance, and supply
+              chain/procurement.
+
+            </li>
+
+            <li>
+
+              <strong>
+                Researched current commercial applications:
+              </strong>
+
+              reviewed vendor and industry sources describing recently
+              released AI-assisted and agentic functionality.
+
+            </li>
+
+            <li>
+
+              <strong>
+                Mapped workflow impact:
+              </strong>
+
+              analyzed how each application changes handoffs, exception
+              handling, analysis, documentation, or prioritization inside
+              an existing business process.
+
+            </li>
+
+            <li>
+
+              <strong>
+                Evaluated controls and human oversight:
+              </strong>
+
+              distinguished AI assistance from autonomous decision-making,
+              emphasizing permissions, approvals, accounting rules, audit
+              trails, and authorized human action.
+
+            </li>
+
+            <li>
+
+              <strong>
+                Synthesized the common pattern:
+              </strong>
+
+              identified the shift from AI as a separate destination toward
+              AI embedded directly inside the workflow where employees
+              already perform the work.
+
+            </li>
+
+          </ol>
+
+        </td>
+
+      </tr>
+
+
+      <!-- TOOLS -->
+
+      <tr>
+
+        <th>
+          Tools &amp; Tech
+        </th>
+
+        <td>
+
+          Commercial AI research, Oracle NetSuite, Oracle Fusion Cloud SCM,
+          agentic AI, AI-assisted estimating, ERP/financial management,
+          procurement workflows, and business-process analysis.
+
+        </td>
+
+      </tr>
+
+
+      <!-- VALUE PROPOSITION -->
+
+      <tr>
+
+        <th>
+          Value Proposition
+        </th>
+
+        <td>
+
+          This artifact demonstrates that I can connect AI capabilities to
+          the operating model around them — workflow design, controls,
+          integration, decision quality, and measurable business value.
+
+          It shows the perspective I bring as an ERP professional: the
+          strongest AI application is not simply the most advanced model,
+          but the one that improves a real process without bypassing the
+          controls the business depends on.
+
+        </td>
+
+      </tr>
+
+
+      <!-- UNIQUE VALUE -->
+
+      <tr>
+
+        <th>
+          Unique Value
+        </th>
+
+        <td>
+
+          The newsletter ties emerging AI capabilities directly to
+          industries and systems I understand professionally.
+
+          The roofing example connects field inspection and estimating to
+          downstream project and financial processes; the NetSuite example
+          treats ERP as a potential "system of assistance" rather than only
+          a system of record; and the supply-chain example shows how agentic
+          AI can prioritize risk while keeping meaningful actions under
+          human approval.
+
+        </td>
+
+      </tr>
+
+
+      <!-- RELEVANCE -->
+
+      <tr>
+
+        <th>
+          Relevance
+        </th>
+
+        <td>
+
+          This artifact brings the portfolio's earlier themes together.
+
+          Artifact 01 focused on evaluating and building with AI,
+          Artifact 02 on choosing appropriate modeling approaches,
+          Artifact 03 on determining whether an AI investment is justified,
+          and Artifact 04 on production data challenges.
+
+          Artifact 05 adds the enterprise perspective: how AI becomes useful
+          when it is embedded into real business workflows and governed by
+          the same controls, integrations, and accountability that already
+          protect the organization.
+
+        </td>
+
+      </tr>
+
+
+      <!-- REFERENCES -->
+
+      <tr>
+
+        <th>
+          References
+        </th>
+
+        <td>
+
+          <ul class="refs">
+
+            <li>
+
+              Robins, M. (2026, July 15).
+
+              <a
+                href="https://roofingmagazine.com/xbuild-announced-the-launch-of-its-mobile-app/"
+                target="_blank"
+                rel="noopener"
+              >
+                <em>AI-Powered Estimating</em>
+              </a>.
+
+              <em>Roofing Magazine</em>.
+              XBuild mobile app launch coverage.
+
+            </li>
+
+
+            <li>
+
+              Oracle NetSuite. (2026).
+
+              NetSuite 2026 Release 2 materials and NetSuite Applications
+              Suite documentation on AI-assisted transaction matching and
+              financial-management capabilities.
+
+            </li>
+
+
+            <li>
+
+              Oracle. (2026, July 13).
+
+              <a
+                href="https://blogs.oracle.com/scm/oracle-fusion-cloud-scm-26c-practical-innovation-across-the-supply-chain"
+                target="_blank"
+                rel="noopener"
+              >
+                <em>
+                  Oracle Fusion Cloud SCM 26C: Practical Innovation Across
+                  the Supply Chain
+                </em>
+              </a>.
+
+            </li>
+
+
+            <li>
+
+              Oracle Cloud Applications Readiness. (2026).
+
+              <a
+                href="https://docs.oracle.com/en/cloud/saas/readiness/scm/26c/proc26c/26C-procurement-wn-f46293.htm"
+                target="_blank"
+                rel="noopener"
+              >
+                <em>
+                  AI Agentic App: Supplier Qualification Workspace
+                </em>
+              </a>.
+
+            </li>
+
+          </ul>
+
+        </td>
+
+      </tr>
+
+
+    </table>
+
+
+    <!-- TAGS -->
+
+    <div class="tag-row">
+
+      <span class="tag">
+        Commercial AI
+      </span>
+
+      <span class="tag">
+        NetSuite
+      </span>
+
+      <span class="tag">
+        Roofing Technology
+      </span>
+
+      <span class="tag">
+        Supply Chain
+      </span>
+
+      <span class="tag">
+        Agentic AI
+      </span>
+
+      <span class="tag">
+        Workflow Design
+      </span>
+
+    </div>
+
+
+    <!-- ORIGINAL ARTIFACT -->
+
+    <div class="artifact-links">
+
+      <a
+        href="https://docs.google.com/document/d/1RgS45s-9b4HvWitudcqg3-cYUX9d8CdB/edit?usp=drive_link&amp;ouid=108901939343780873383&amp;rtpof=true&amp;sd=true"
+        target="_blank"
+        rel="noopener"
+      >
+        → View Original Newsletter
+      </a>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <span>
+      © 2026 Manju Bhargavi Penumarthi
+    </span>
+
+    <span>
+
+      <a href="mailto:manjupenumarthi1@gmail.com">
+        Email
+      </a>
+
+      ·
+
+      <a
+        href="https://www.linkedin.com/in/manjupenumarthi"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
+
+      ·
+
+      <a
+        href="https://github.com/ManjuPenumarthi"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+    </span>
+
   </footer>
+
+
 </div>
+
 </body>
 </html>
